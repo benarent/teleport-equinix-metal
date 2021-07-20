@@ -16,6 +16,7 @@ crash.log
 #
 
 */secrets/*
+terraform-identity
 _prep/terraform-identity
 
 secret.tfvars
