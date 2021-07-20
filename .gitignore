@@ -15,6 +15,7 @@ crash.log
 # version control.
 #
 
+*/secrets/*
 _prep/terraform-identity
 
 secret.tfvars

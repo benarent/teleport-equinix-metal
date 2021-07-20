@@ -1,5 +1,7 @@
 #cloud-config
-
+# - name: memory
+#command: [curl, "https://metadata.platformequinix.com/metadata" | "jq -r \".specs.memory.total\""]
+#period: 1h0m0s
 
 write_files:
   - path: /etc/teleport.yaml
@@ -7,7 +9,7 @@ write_files:
         teleport:
             auth_token: ${auth_token}
             auth_servers:
-                - "${auth_servers}:443"
+                - "https://${auth_servers}:443"
         auth_service:
             enabled: false
         proxy_service:
@@ -27,6 +29,7 @@ write_files:
               - name: uptime
                 command: [uptime, -p]
                 period: 1h0m0s
+            
 
 apt:
   sources:

@@ -25,7 +25,7 @@ resource "teleport_github_connector" "github" {
     display       = "github"
     redirect_url  = "https://${var.teleport_url}:443/v1/webapi/github/callback"
     teams_to_logins {
-      logins       = ["access"]
+      logins       = ["access", "equinix"]
       team         = var.gh_team
       organization = var.gh_org
     }
@@ -34,3 +34,25 @@ resource "teleport_github_connector" "github" {
 }
 
 
+resource "teleport_role" "equinix" {
+  metadata {
+    name = "equinix"
+  }
+
+  spec {
+    options {
+      forward_agent           = false
+      max_session_ttl         = "24h"
+      port_forwarding         = false
+      client_idle_timeout     = "1h"
+      disconnect_expired_cert = true
+      permit_x11forwarding    = false
+      request_access          = "denied"
+    }
+
+    allow {
+      logins = ["root","ubuntu"]
+    }
+
+  }
+}

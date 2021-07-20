@@ -12,12 +12,12 @@ variable "equinix_auth_token" {
 
 variable "gh_team" {
   type    = string
-  default = "employees"
+  default = "trainee-graviton"
 }
 
 variable "gh_org" {
   type    = string
-  default = "gravitational"
+  default = "asteroid-earth"
 }
 
 variable "gh_client_id" {
