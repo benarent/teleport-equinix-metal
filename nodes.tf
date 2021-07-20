@@ -14,7 +14,7 @@ data "template_file" "user_data" {
 # Create a device and add it to tf_project_1
 resource "metal_device" "web" {
 
-  count = 2
+  count = 1
  
   hostname         = "web-${count.index}"
   plan             = "s3.xlarge.x86"
@@ -24,7 +24,7 @@ resource "metal_device" "web" {
   project_id       = data.metal_project.project.id
   user_data = data.template_file.user_data.rendered
 
-    tags =  ["hello"]
+    tags =  ["hello-world","teleport","💜"]
     
 }
 
