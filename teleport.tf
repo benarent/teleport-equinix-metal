@@ -23,7 +23,7 @@ resource "teleport_github_connector" "github" {
     client_id     = var.gh_client_id
     client_secret = var.gh_client_secret
     display       = "github"
-    redirect_url  = "${var.teleport_url}:443/v1/webapi/github/callback"
+    redirect_url  = "https://${var.teleport_url}:443/v1/webapi/github/callback"
     teams_to_logins {
       logins       = ["access"]
       team         = var.gh_team

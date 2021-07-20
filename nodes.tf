@@ -15,16 +15,16 @@ data "template_file" "user_data" {
 resource "metal_device" "web" {
 
   count = 1
- 
+
   hostname         = "web-${count.index}"
   plan             = "s3.xlarge.x86"
   facilities       = ["da11"]
   operating_system = "ubuntu_20_04"
   billing_cycle    = "hourly"
   project_id       = data.metal_project.project.id
-  user_data = data.template_file.user_data.rendered
+  user_data        = data.template_file.user_data.rendered
 
-    tags =  ["hello-world","teleport","💜"]
-    
+  tags = ["hello-world", "teleport", "💜"]
+
 }
 

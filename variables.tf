@@ -2,7 +2,7 @@
 // Teleport URL
 variable "teleport_url" {
   type    = string
-  default = "https://equinix-metal-livestream.teleport.sh"
+  default = "equinix-metal-livestream.teleport.sh"
 }
 
 variable "equinix_auth_token" {
@@ -31,3 +31,9 @@ variable "gh_client_secret" {
   type        = string
   sensitive   = true
 }
+
+variable "teleport_identity" {
+  type      = string
+  sensitive = true
+}
+

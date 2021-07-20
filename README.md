@@ -3,6 +3,9 @@
 
 ## Initial Setup
 
+
+## Terraform Setup
+
 ```
 terraform init
 terraform plan -var-file="secret.tfvars"

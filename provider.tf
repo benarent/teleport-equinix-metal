@@ -11,8 +11,8 @@ terraform {
 }
 
 provider "teleport" {
-  addr               = "equinix-metal-livestream.teleport.sh:443"
-  identity_file_path = "_prep/terraform-identity"
+  addr               = "${var.teleport_url}:443"
+  identity_file_path = var.teleport_identity
 }
 
 # Configure the Equinix Metal Provider.
