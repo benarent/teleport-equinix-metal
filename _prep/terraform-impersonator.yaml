@@ -1,0 +1,23 @@
+kind: role
+version: v3
+metadata:
+  name: terraform-impersonator
+spec:
+  # SSH options used for user sessions 
+  options:
+    # max_session_ttl defines the TTL (time to live) of SSH certificates 
+    # issued to the users with this role.
+    max_session_ttl: 24h
+
+  # allow section declares a list of resource/verb combinations that are
+  # allowed for the users of this role. by default nothing is allowed.
+  allow:
+    impersonate:
+      users: ['terraform']
+      roles: ['terraform']
+
+  # the deny section uses the identical format as the 'allow' section.
+  # the deny rules always override allow rules.
+  deny:
+    node_labels:
+      '*': '*'
